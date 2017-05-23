@@ -1,4 +1,9 @@
 %h1 People
+= form_with url: people_path, method: :get, local: true do |form|
+  = form.label :search
+  = form.text_field :query
+  = form.submit 'go'
+%br/
 %table
   %thead
     %tr
@@ -16,7 +21,7 @@
       %td
         = person.gender
       %td
-        = person.alien
+        = humanize_boolean(person.alien)
       %td
         = link_to 'Show', person_path(person)
         = link_to 'Edit', edit_person_path(person)

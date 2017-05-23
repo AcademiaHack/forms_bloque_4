@@ -14,7 +14,7 @@
 #  index_hobbies_on_person_id  (person_id)
 #
 
-class Hobbie < ApplicationRecord
+class Hobby < ApplicationRecord
   enum kind: { indoors: 0, outdoors: 1 }
   belongs_to :person
 end

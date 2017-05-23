@@ -10,7 +10,7 @@
     = form.number_field :age
   .field
     = form.label :gender
-    = form.text_field :gender
+    = form.select :gender, [['male', 'Male'], ['female', 'Famale']]
   .field
     = form.label :alien
     .field

@@ -2,7 +2,11 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.all
+    if params.key?(:query)
+      @people = Person.where('people.name LIKE ?', "%#{params[:query]}%")
+    else
+      @people = Person.all
+    end
   end
 
   def show
@@ -10,6 +14,8 @@ class PeopleController < ApplicationController
 
   def new
     @person = Person.new
+    3.times { @person.hobbies.build }
+    @kinds = Hobby.kinds.keys.to_a
   end
 
   def edit
@@ -56,6 +62,7 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:name, :age, :gender, :alien)
+    params.require(:person).permit(:name, :age, :gender, :alien,
+                                   hobbies_attributes: [:name, :kind])
   end
 end
