@@ -44,7 +44,7 @@ class PeopleController < ApplicationController
   def destroy
     @person.destroy
     respond_to do |format|
-      format.html { redirect_to persons_url, notice: 'person was successfully destroyed.' }
+      format.html { redirect_to people_path, notice: 'person was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -56,6 +56,6 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:name, :person_id)
+    params.require(:person).permit(:name, :age, :gender, :alien)
   end
 end

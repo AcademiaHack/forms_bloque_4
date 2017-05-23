@@ -1,0 +1,16 @@
+%h1 #{@person.name}
+
+%ul
+  %li
+    %strong
+      Age:
+    #{@person.age}
+  %li
+    %strong
+      Gender:
+    #{@person.gender}
+  %li
+    %strong
+      Alien:
+    #{@person.alien}
+= link_to 'Back', people_path
