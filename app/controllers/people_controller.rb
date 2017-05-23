@@ -29,6 +29,7 @@ class PeopleController < ApplicationController
         format.html { redirect_to @person, notice: 'person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
       else
+        @kinds = Hobby.kinds.keys.to_a
         format.html { render :new }
         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
@@ -62,7 +63,7 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:name, :age, :gender, :alien,
+    params.require(:person).permit(:name, :age, :gender, :alien, :avatar,
                                    hobbies_attributes: [:name, :kind])
   end
 end

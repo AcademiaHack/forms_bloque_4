@@ -1,4 +1,9 @@
+%p{id:"notice"}
+  = notice
+
 %h1 #{@person.name}
+%div
+  = image_tag @person.avatar.url(:thumb)
 
 %ul
   %li
