@@ -1,0 +1,7 @@
+%h1 New person
+%br/
+
+= form_with model: @person, local: true do |form|
+  = form.label :name
+  = form.text_field :name
+

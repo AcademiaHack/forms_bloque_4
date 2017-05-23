@@ -1,0 +1,23 @@
+%h1 People
+%table
+  %thead
+    %tr
+      %th Name
+      %th Age
+      %th Gender
+      %th Alien?
+  %tbody
+  - @people.each do |person|
+    %tr
+      %td
+        = person.name
+      %td
+        = person.age
+      %td
+        = person.gender
+      %td
+        = person.alien
+
+%br/
+= link_to 'New Person', new_person_path
+
